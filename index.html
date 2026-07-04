@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Universo da Lua</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Poppins,sans-serif;
+scroll-behavior:smooth;
+}
+
+body{
+
+background:
+radial-gradient(circle at top,#1b2a52,#090b18 65%);
+color:white;
+overflow-x:hidden;
+
+}
+
+body::before{
+
+content:"";
+position:fixed;
+left:0;
+top:0;
+width:100%;
+height:100%;
+background-image:
+radial-gradient(white 1px,transparent 1px),
+radial-gradient(white 1px,transparent 1px),
+radial-gradient(#ddd 1px,transparent 1px);
+
+background-size:
+120px 120px,
+180px 180px,
+240px 240px;
+
+opacity:.22;
+pointer-events:none;
+animation:stars 90s linear infinite;
+
+}
+
+@keyframes stars{
+
+from{
+transform:translateY(0);
+}
+
+to{
+transform:translateY(-500px);
+}
+
+}
+
+header{
+
+height:100vh;
+
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+padding:20px;
+
+}
+
+.hero{
+
+max-width:900px;
+
+}
+
+.hero h1{
+
+font-size:65px;
+margin-bottom:20px;
+
+}
+
+.hero p{
+
+font-size:20px;
+line-height:1.8;
+
+}
+
+.lua{
+
+width:230px;
+height:230px;
+
+border-radius:50%;
+
+margin:auto;
+
+background:
+
+radial-gradient(circle at 30% 30%,#fff,#ddd,#bbb,#999);
+
+box-shadow:
+
+0 0 40px white,
+0 0 80px rgba(255,255,255,.4);
+
+margin-bottom:40px;
+
+animation:lua 6s ease-in-out infinite;
+
+}
+
+@keyframes lua{
+
+50%{
+
+transform:
+translateY(-15px)
+rotate(5deg);
+
+}
+
+}
+
+nav{
+
+position:fixed;
+
+top:0;
+left:0;
+
+width:100%;
+
+padding:18px;
+
+background:rgba(0,0,0,.45);
+
+backdrop-filter:blur(10px);
+
+display:flex;
+
+justify-content:center;
+
+gap:30px;
+
+z-index:999;
+
+}
+
+nav a{
+
+color:white;
+
+text-decoration:none;
+
+font-weight:600;
+
+transition:.3s;
+
+}
+
+nav a:hover{
+
+color:#ffe27a;
+
+}
+
+section{
+
+max-width:1100px;
+
+margin:auto;
+
+padding:90px 25px;
+
+}
+
+h2{
+
+font-size:42px;
+
+margin-bottom:25px;
+
+color:#ffe27a;
+
+}
+
+p{
+
+line-height:1.9;
+
+font-size:18px;
+
+}
+
+.cards{
+
+display:grid;
+
+grid-template-columns:
+
+repeat(auto-fit,minmax(250px,1fr));
+
+gap:25px;
+
+margin-top:40px;
+
+}
+
+.card{
+
+background:rgba(255,255,255,.07);
+
+border:1px solid rgba(255,255,255,.12);
+
+padding:25px;
+
+border-radius:20px;
+
+transition:.4s;
+
+backdrop-filter:blur(10px);
+
+}
+
+.card:hover{
+
+transform:translateY(-10px);
+
+box-shadow:0 20px 40px rgba(0,0,0,.4);
+
+}
+
+.card h3{
+
+font-size:24px;
+
+margin-bottom:15px;
+
+color:#ffe27a;
+
+}
+
+.card span{
+
+font-size:55px;
+
+display:block;
+
+margin-bottom:10px;
+
+}
+
+footer{
+
+padding:50px;
+
+text-align:center;
+
+background:#05060d;
+
+margin-top:100px;
+
+}
+
+.botao{
+
+display:inline-block;
+
+margin-top:35px;
+
+padding:15px 35px;
+
+background:#ffe27a;
+
+color:black;
+
+font-weight:bold;
+
+border-radius:40px;
+
+text-decoration:none;
+
+transition:.3s;
+
+}
+
+.botao:hover{
+
+transform:scale(1.08);
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<nav>
+
+<a href="#lua">A Lua</a>
+
+<a href="#fases">Fases</a>
+
+<a href="#ciclo">Ciclo</a>
+
+<a href="#atividades">Atividades</a>
+
+<a href="#curiosidades">Curiosidades</a>
+
+</nav>
+
+<header>
+
+<div class="hero">
+
+<div class="lua"></div>
+
+<h1>🌙 Universo da Lua</h1>
+
+<p>
+
+Descubra tudo sobre o nosso satélite natural: suas fases,
+como funciona o ciclo lunar, curiosidades incríveis e
+atividades tradicionalmente associadas a cada fase da Lua.
+
+</p>
+
+<a class="botao" href="#lua">
+
+Começar a explorar
+
+</a>
+
+</div>
+
+</header>
+
+<section id="lua">
+
+<h2>O que é a Lua?</h2>
+
+<p>
+
+A Lua é o único satélite natural da Terra e está a uma distância média de aproximadamente 384.400 quilômetros do nosso planeta. Ela se formou há cerca de 4,5 bilhões de anos e exerce uma enorme influência sobre a Terra, principalmente nas marés, devido à sua força gravitacional.
+
+</p>
+
+<br>
+
+<p>
+
+Apesar de parecer mudar de forma durante o mês, a Lua permanece sempre a mesma. O que muda é apenas a parte iluminada pelo Sol que conseguimos observar da Terra. Esse fenômeno dá origem às famosas fases da Lua.
+
+</p>
+
+</section>
+
+<section id="fases">
+
+<h2>As fases da Lua</h2>
+
+<div class="cards">
+
+<div class="card">
+
+<span>🌑</span>
+
+<h3>Lua Nova</h3>
+
+<p>
+
+É o início do ciclo lunar. A face iluminada fica voltada para o Sol, tornando a Lua praticamente invisível da Terra. Muitas pessoas associam essa fase ao começo de novos projetos e ao planejamento.
+
+</p>
+
+</div>
+
+<div class="card">
+
+<span>🌒</span>
+
+<h3>Lua Crescente</h3>
+
+<p>
+
+A parte iluminada começa a aumentar gradualmente. É um período em que a Lua aparece cada vez mais no céu durante as primeiras horas da noite.
+
+</p>
+
+</div>
+
+<div class="card">
+
+<span>🌓</span>
+
+<h3>Quarto Crescente</h3>
+
+<p>
+
+Metade da Lua aparece iluminada. Essa fase ocorre aproximadamente uma semana após a Lua Nova.
+
+</p>
+
+</div>
+
+<div class="card">
+
+<span>🌔</span>
+
+<h3>Gibosa Crescente</h3>
+
+<p>
+
+Mais da metade da superfície visível está iluminada. A Lua se aproxima da fase cheia.
+
+</p>
+
+</div>
+<div class="card">
+
+<span>🌕</span>
+
+<h3>Lua Cheia</h3>
+
+<p>
+
+Toda a face voltada para a Terra está iluminada pelo Sol. É a fase mais brilhante do ciclo lunar e também a mais conhecida. Durante esse período, as marés tendem a ser mais intensas devido ao alinhamento entre Sol, Terra e Lua.
+
+</p>
+
+</div>
+
+<div class="card">
+
+<span>🌖</span>
+
+<h3>Gibosa Minguante</h3>
+
+<p>
+
+Depois da Lua Cheia, a parte iluminada começa a diminuir lentamente. Ainda é possível observar grande parte da Lua iluminada durante a noite.
+
+</p>
+
+</div>
+
+<div class="card">
+
+<span>🌗</span>
+
+<h3>Quarto Minguante</h3>
+
+<p>
+
+Novamente vemos apenas metade da Lua iluminada, mas agora o ciclo está caminhando para o fim. Essa fase ocorre aproximadamente três semanas após a Lua Nova.
+
+</p>
+
+</div>
+
+<div class="card">
+
+<span>🌘</span>
+
+<h3>Lua Minguante</h3>
+
+<p>
+
+A iluminação visível diminui cada vez mais até chegar novamente à Lua Nova, iniciando outro ciclo.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<section id="ciclo">
+
+<h2>Como funciona o ciclo lunar?</h2>
+
+<p>
+
+O ciclo lunar completo dura, em média, <strong>29 dias, 12 horas e 44 minutos</strong>. Durante esse período, a Lua gira ao redor da Terra enquanto recebe iluminação do Sol. Conforme sua posição muda, enxergamos diferentes partes iluminadas, formando as fases lunares.
+
+</p>
+
+<br>
+
+<p>
+
+É importante lembrar que a Lua não produz luz própria. Todo o brilho que observamos é resultado da luz solar refletida em sua superfície.
+
+</p>
+
+<br>
+
+<p>
+
+Esse ciclo influencia diversos fenômenos naturais, como as marés, além de servir como referência para calendários utilizados por diferentes culturas ao longo da história.
+
+</p>
+
+</section>
+
+<section id="atividades">
+
+<h2>Atividades tradicionalmente associadas às fases da Lua</h2>
+
+<p style="margin-bottom:35px;">
+
+As sugestões abaixo fazem parte de tradições populares e práticas culturais. Elas não possuem comprovação científica de que produzam resultados específicos, mas muitas pessoas gostam de utilizá-las como forma de organização ou reflexão.
+
+</p>
+
+<div class="cards">
+
+<div class="card">
+
+<h3>🌑 Lua Nova</h3>
+
+<p>
+
+• Planejar metas.<br>
+• Escrever objetivos.<br>
+• Organizar a rotina.<br>
+• Começar novos projetos.<br>
+• Criar novos hábitos.
+
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>🌒 Crescente</h3>
+
+<p>
+
+• Estudar.<br>
+• Desenvolver habilidades.<br>
+• Dar continuidade aos projetos.<br>
+• Aprender algo novo.<br>
+• Trabalhar no crescimento pessoal.
+
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>🌕 Lua Cheia</h3>
+
+<p>
+
+• Celebrar conquistas.<br>
+• Reunir família e amigos.<br>
+• Fotografar a Lua.<br>
+• Fazer caminhadas noturnas com segurança.<br>
+• Observar o céu.
+
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>🌘 Lua Minguante</h3>
+
+<p>
+
+• Revisar objetivos.<br>
+• Organizar ambientes.<br>
+• Encerrar tarefas pendentes.<br>
+• Desapegar do que não é mais útil.<br>
+• Descansar e refletir.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<section id="curiosidades">
+
+<h2>Curiosidades sobre a Lua</h2>
+
+<div class="cards">
+
+<div class="card">
+
+<h3>🌍 Distância</h3>
+
+<p>
+
+A Lua está, em média, a cerca de 384 mil quilômetros da Terra.
+
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>🚀 Primeira viagem</h3>
+
+<p>
+
+Em 1969, astronautas da missão Apollo 11 realizaram o primeiro pouso tripulado na Lua.
+
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>🌊 Marés</h3>
+
+<p>
+
+A gravidade da Lua influencia diretamente o movimento das marés dos oceanos.
+
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>🌑 Sempre vemos a mesma face</h3>
+
+<p>
+
+A Lua leva praticamente o mesmo tempo para girar em torno do próprio eixo e ao redor da Terra, por isso sempre enxergamos o mesmo lado.
+
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>❄ Temperaturas</h3>
+
+<p>
+
+Durante o dia lunar, a temperatura pode ultrapassar 120 °C. À noite, pode chegar a aproximadamente −130 °C.
+
+</p>
+
+</div>
+
+<div class="card">
+
+<h3>🌌 Sem atmosfera</h3>
+
+<p>
+
+A Lua praticamente não possui atmosfera, por isso não há vento nem chuva em sua superfície.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<section>
+
+<h2>Conclusão</h2>
+
+<p>
+
+A Lua acompanha a humanidade desde os tempos mais antigos. Além de iluminar as noites, ela influencia as marés, faz parte da história da exploração espacial e desperta curiosidade em pessoas de todas as idades.
+
+</p>
+
+<br>
+
+<p>
+
+Conhecer suas fases ajuda a compreender melhor diversos fenômenos naturais e também a observar o céu de uma forma muito mais interessante. Independentemente das crenças populares associadas às fases lunares, a ciência mostra que a Lua continua sendo um dos corpos celestes mais fascinantes do Sistema Solar.
+
+</p>
+
+</section>
+
+<footer>
+
+<h2 style="color:#ffe27a;margin-bottom:15px;">
+🌙 Universo da Lua
+</h2>
+
+<p>
+
+Projeto educativo desenvolvido para estudos sobre a Lua, suas fases, seu ciclo e curiosidades.
+
+</p>
+
+<br>
+
+<p style="opacity:.8;">
+HTML • CSS • JavaScript
+</p>
+
+</footer>
+
+<script>
+
+const cards=document.querySelectorAll(".card");
+
+const observer=new IntersectionObserver((entries)=>{
+
+entries.forEach(entry=>{
+
+if(entry.isIntersecting){
+
+entry.target.animate(
+
+[
+{
+opacity:0,
+transform:"translateY(50px)"
+},
+{
+opacity:1,
+transform:"translateY(0)"
+}
+],
+
+{
+duration:700,
+fill:"forwards"
+}
+
+);
+
+observer.unobserve(entry.target);
+
+}
+
+});
+
+},
+{
+threshold:.15
+});
+
+cards.forEach(card=>{
+
+card.style.opacity="0";
+
+observer.observe(card);
+
+});
+
+document.querySelectorAll("nav a").forEach(link=>{
+
+link.addEventListener("click",function(e){
+
+e.preventDefault();
+
+const alvo=document.querySelector(this.getAttribute("href"));
+
+window.scrollTo({
+
+top:alvo.offsetTop-70,
+
+behavior:"smooth"
+
+});
+
+});
+
+});
+
+</script>
+
+</body>
+
+</html>
